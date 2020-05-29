@@ -43,13 +43,24 @@ namespace QuotesWebAPI.Controllers
             return BadRequest();
         }
         [HttpPut("{id}")]
-        public async Task<ActionResult> Edit(int id, Quote quote)
+        public async Task<ActionResult> Update(int id, Quote quote)
         {
             var q = await _context.Quotes.FindAsync(id);
             if (q == null)
                 return NotFound();
             q.Text = quote.Text ?? q.Text;
             q.Author = quote.Author ?? q.Author;
+            if (await _context.SaveChangesAsync() > 0)
+                return Ok();
+            return BadRequest();
+        }
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var q = await _context.Quotes.FindAsync(id);
+            if (q == null)
+                return NotFound();
+            _context.Quotes.Remove(q);
             if (await _context.SaveChangesAsync() > 0)
                 return Ok();
             return BadRequest();
