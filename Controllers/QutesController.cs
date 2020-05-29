@@ -24,9 +24,11 @@ namespace QuotesWebAPI.Controllers
         public async Task<ActionResult<List<Quote>>> GetAll()
         {
             var date = DateTime.Now;
-            var q = _context.Quotes.Where(x => date.Day - x.InsertDate.Day > 30).Select(x => x);
+            var q = await _context.Quotes.Where(x => date.Day - x.InsertDate.Day > 30).Select(x => x).ToListAsync();
             if( q.Count() > 0 ){
-                _context.Remove(q);
+                foreach(var x in q){
+                    _context.Remove(x);
+                }
                 await _context.SaveChangesAsync();
             }
             return await _context.Quotes.ToListAsync();
@@ -46,9 +48,11 @@ namespace QuotesWebAPI.Controllers
         public async Task<ActionResult> Update(int id, Quote quote)
         {
             var q = await _context.Quotes.FindAsync(id);
+            if(quote.Text == null)
+                quote.Text = q.Text;
             if (q == null)
                 return NotFound();
-            q.Text = quote.Text ?? q.Text;
+            q.Text = quote.Text;
             q.Author = quote.Author ?? q.Author;
             if (await _context.SaveChangesAsync() > 0)
                 return Ok();
