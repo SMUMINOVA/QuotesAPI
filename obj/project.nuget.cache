@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "fXv5RXTH6Th/aGcd2l9psFsdCeDWUoXgY5KNXd1QAqH+Ve8aYZKuSdUeKJBeAMe8FHLb67dN8lZq5nUbUrz9HQ==",
+  "dgSpecHash": "TypOXlic0E6b3JyLU3PDUosGNVmhzdlRaGGj5gedJFrsywBhliT0QHVu4H4KVnE62SiajPzL8B5hgo1TO6+CvQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\dell\\Desktop\\AlifAcademy\\WebAPI\\QuotesWebAPI\\QuotesWebAPI.csproj",
   "expectedPackageFiles": [
@@ -16,6 +16,7 @@
     "C:\\Users\\dell\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\3.1.4\\microsoft.entityframeworkcore.relational.3.1.4.nupkg.sha512",
     "C:\\Users\\dell\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite\\3.1.4\\microsoft.entityframeworkcore.sqlite.3.1.4.nupkg.sha512",
     "C:\\Users\\dell\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite.core\\3.1.4\\microsoft.entityframeworkcore.sqlite.core.3.1.4.nupkg.sha512",
+    "C:\\Users\\dell\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\3.1.4\\microsoft.entityframeworkcore.tools.3.1.4.nupkg.sha512",
     "C:\\Users\\dell\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\3.1.4\\microsoft.extensions.caching.abstractions.3.1.4.nupkg.sha512",
     "C:\\Users\\dell\\.nuget\\packages\\microsoft.extensions.caching.memory\\3.1.4\\microsoft.extensions.caching.memory.3.1.4.nupkg.sha512",
     "C:\\Users\\dell\\.nuget\\packages\\microsoft.extensions.configuration\\3.1.4\\microsoft.extensions.configuration.3.1.4.nupkg.sha512",
