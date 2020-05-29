@@ -28,12 +28,31 @@ namespace QuotesWebAPI.Controllers
             if( q.Count() > 0 ){
                 _context.Remove(q);
                 await _context.SaveChangesAsync();
-            }       
-            var t = await _context.Quotes.ToListAsync();
-            return t;
+            }
+            return await _context.Quotes.ToListAsync();
         }
-
-        
-    }
-    
+        [HttpPost]
+        public async Task<ActionResult> Add(Quote quote)
+        {
+            quote.InsertDate = DateTime.Now;
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            _context.Quotes.Add(quote);
+            if (await _context.SaveChangesAsync() > 0)
+                return Ok();
+            return BadRequest();
+        }
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Edit(int id, Quote quote)
+        {
+            var q = await _context.Quotes.FindAsync(id);
+            if (q == null)
+                return NotFound();
+            q.Text = quote.Text ?? q.Text;
+            q.Author = quote.Author ?? q.Author;
+            if (await _context.SaveChangesAsync() > 0)
+                return Ok();
+            return BadRequest();
+        }
+    }    
 }
